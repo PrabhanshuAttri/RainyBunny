@@ -6,12 +6,6 @@ from time import gmtime, strftime
 import json
 import urllib2
 
-
-def pretty_print(str):
-    print json.dumps(str, indent=4, sort_keys=True)
-
-def pretty(str):
-    return json.dumps(str, indent=4, sort_keys=True)
 # put your own credentials here 
 def sendSMS(body):
    
