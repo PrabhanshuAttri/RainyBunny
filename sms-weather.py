@@ -12,23 +12,31 @@ def pretty_print(str):
 
 def pretty(str):
     return json.dumps(str, indent=4, sort_keys=True)
-    
+# put your own credentials here 
 def sendSMS(body):
-  # put your own credentials here 
-	ACCOUNT_SID = "AC2a7f1002XXXXXXXXXXXXXXXXXXXXXXXX" 
+   
+	ACCOUNT_SID = "AC2a7f100XXXXXXXXXXXXXXXXXXXXXXXXX" 
 	AUTH_TOKEN = "77b9a6e4XXXXXXXXXXXXXXXXXXXXXXXX" 
 	 
 	client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
 	 
-	mes =  client.messages.create(to="+918287032944", from_="+14043694122", body=body)
+	mes =  client.messages.create(to="+91XXXXXXXXXX", from_="+14XXXXXXXXX", body=body)
 	print mes
 
 while True:
 	data = json.load(urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q=Delhi,India'))
+	forec = json.load(urllib2.urlopen('http://api.openweathermap.org/data/2.5/forecast?q=Delhi,India'))
 	t = float(float(data['main']['temp']) - 272.15)
-	fmt = "%d-%m-%Y, %H:%M:%S %Z%z"
+	fmt = "%d-%m-%Y, %H:%M:%S"
 	now_time = datetime.now(timezone('Asia/Kolkata'))
-	msg = now_time.strftime(fmt) + ': Station: ' + data['name'] + ', Weather: ' + data['weather'][0]['description'] + ', Temp: ' + str(float(t)) + 'C'
+	msg = 'Station: ' + data['name'] + ' ' + now_time.strftime(fmt) + ': Weather: ' + data['weather'][0]['description'] + ', Temp: ' + str(float(t)) + 'C'
+	fmt = "%d"
+	forec_date = '2015-07-' + str(int(now_time.strftime(fmt)) + 1) +' 12:00:00'
+	for x in forec['list']:
+		if(str(forec_date) in str(x['dt_txt'])):
+			t = float(float(x['main']['temp']) - 272.15)
+			msg += ' and ' + x['dt_txt'] + ' Weather:' + x['weather'][0]['description'] + ', Temp: ' + str(float(t)) + 'C'
+
 	print msg
 	print 'SMS ID: ',
 	sendSMS(msg)
