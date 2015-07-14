@@ -8,12 +8,9 @@ import urllib2
 
 # put your own credentials here 
 def sendSMS(body):
-   
 	ACCOUNT_SID = "AC2a7f100XXXXXXXXXXXXXXXXXXXXXXXXX" 
 	AUTH_TOKEN = "77b9a6e4XXXXXXXXXXXXXXXXXXXXXXXX" 
-	 
-	client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
-	 
+	client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 	mes =  client.messages.create(to="+91XXXXXXXXXX", from_="+14XXXXXXXXX", body=body)
 	print mes
 
