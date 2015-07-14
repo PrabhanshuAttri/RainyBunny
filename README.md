@@ -1,5 +1,5 @@
 # SMS Weather update using twilio
-SMS live weather updates from open weather using twilio every 3 minutes
+SMS live weather updates and weather forecasts from open weather using twilio every 3 minutes
 
 # Requirements
 
