@@ -13,5 +13,5 @@ SMS live weather updates and weather forecasts from open weather using twilio ev
 
   pip install twilio
 
-- [Twilio Account!](https://www.twilio.com) fpr ACCOUNT_SID and AUTH_TOKEN 
+- [Twilio Account!](https://www.twilio.com) for ACCOUNT_SID and AUTH_TOKEN 
 
