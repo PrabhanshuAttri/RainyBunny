@@ -7,11 +7,11 @@ SMS live weather updates and weather forecasts from open weather using twilio ev
 
 - PIP
 
- > sudo easy_install pip
+  > sudo easy_install pip
 
 - Twilio
 
- > pip install twilio
+  > pip install twilio
 
 - [Twilio Account!](https://www.twilio.com) for ACCOUNT_SID and AUTH_TOKEN 
 
