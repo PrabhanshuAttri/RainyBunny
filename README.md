@@ -1,4 +1,4 @@
-# SMS Weather update using twilio
+# Rainy Bunny
 SMS live weather updates and weather forecasts from open weather using twilio every 3 minutes
 
 # Requirements
